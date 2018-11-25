@@ -15,6 +15,7 @@ type arviHandler struct {
 func (h arviHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) (int, error) {
 	// Adding header values as test
 	w.Header().Set("Arvi-Ack", h.AdditionalHeader)
+	w.Header().Set("Server", h.AdditionalHeader)
 	return h.Next.ServeHTTP(w, r)
 }
 
